@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013093315) do
+ActiveRecord::Schema.define(version: 20171015192514) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +41,25 @@ ActiveRecord::Schema.define(version: 20171013093315) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "model"
+    t.integer "scale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["scale_id"], name: "index_cars_on_scale_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "scales", force: :cascade do |t|
+    t.string "vehicle_type"
+    t.float "coefficient"
+    t.string "fiscal_power"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
