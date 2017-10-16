@@ -17,8 +17,8 @@ ActiveAdmin.register Scale do
   form do |f|
     inputs "utilisateur" do
       input :vehicle_type
-      input :coefficient
       input :fiscal_power
+      input :coefficient
       input :active, as: :select
       actions
     end

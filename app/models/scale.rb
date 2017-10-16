@@ -1,6 +1,6 @@
 class Scale < ApplicationRecord
 
-  belongs_to :car
+  has_many :cars
 
   def model_with_fiscal
     "#{vehicle_type}, #{fiscal_power}"
