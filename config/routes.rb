@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   get "/cars/new", to: "cars#new", as: "new_cars"
   post "/cars/new", to: "cars#create"
+  get "/cars/:id/edit", to:"cars#edit", as: "car"
+  patch "/cars/:id/edit", to: "cars#update"
+
+  put "/cars/:id", to: "cars#desactivation", as: "desactivation_car"
   get "fees/new", to: "fees#new", as: "new_fees"
   post "/fees/new", to: "fees#create"
 
