@@ -3,12 +3,17 @@ ActiveAdmin.register_page "Dashboard" do
   menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
 
   content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+    columns do
+      column do
+        panel "Demande de remboursement de frais kilométrique" do
+          table_for Fee.order("id desc") do
+            column("Nom") { |fee| link_to(fee.user.email, admin_user_path(fee.user))}
+            column("Frais") { |fee| link_to(fee.cost, admin_fee_path(fee.id)) }
+          end
+        end
       end
     end
+  
 
     # Here is an example of a simple dashboard with columns and panels.
     #
