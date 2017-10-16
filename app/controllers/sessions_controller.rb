@@ -21,6 +21,8 @@ class SessionsController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @cars = @user.cars.all
+    @fees = @user.fees
   end
 
   def edit

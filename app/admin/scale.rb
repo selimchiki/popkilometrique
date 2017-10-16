@@ -12,4 +12,16 @@ ActiveAdmin.register Scale do
 #   permitted
 # end
 
+  permit_params :vehicle_type, :coefficient, :fiscal_power, :active
+
+  form do |f|
+    inputs "utilisateur" do
+      input :vehicle_type
+      input :coefficient
+      input :fiscal_power
+      input :active, as: :select
+      actions
+    end
+  end
+
 end

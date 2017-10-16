@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171015192514) do
+ActiveRecord::Schema.define(version: 20171015194146) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -51,6 +51,21 @@ ActiveRecord::Schema.define(version: 20171015192514) do
     t.integer "user_id"
     t.index ["scale_id"], name: "index_cars_on_scale_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "fees", force: :cascade do |t|
+    t.date "date"
+    t.string "departure"
+    t.string "arrival"
+    t.boolean "type_of_trajet"
+    t.integer "user_id"
+    t.integer "car_id"
+    t.integer "kilometer"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_id"], name: "index_fees_on_car_id"
+    t.index ["user_id"], name: "index_fees_on_user_id"
   end
 
   create_table "scales", force: :cascade do |t|

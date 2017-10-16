@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   patch '/users/:id', to: "sessions#update"
   delete 'sessions/destroy', to: "sessions#destroy", as: "logout"
 
-  post "/cars/new", to: "cars#create", as: "new_cars"
-  resources :trajets
+  get "/cars/new", to: "cars#new", as: "new_cars"
+  post "/cars/new", to: "cars#create"
+  get "fees/new", to: "fees#new", as: "new_fees"
   post "/trajets/new", to: "trajets#create"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
