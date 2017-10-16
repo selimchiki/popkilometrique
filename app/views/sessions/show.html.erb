@@ -1,17 +1,23 @@
 <h1>Bienvenue <%= @user.email %></h1>
 
-<br>
-<%= link_to "Ajouter un nouveau véhicules", new_cars_path, class: "btn btn-primary" %>
-<h3>Mes Vehicules</h3>
-<%  @cars.each do |car| %>
-    <p><%= car.model %></p>
-<% end %>
-<br>
+<div class="row">
+  <div class="col-6">
+    <br>
+    <%= link_to "Ajouter un nouveau véhicules", new_cars_path, class: "btn btn-primary" %>
+    <h3>Mes Vehicules</h3>
+    <%  @cars.each do |car| %>
+        <p><%= car.model %></p>
+    <% end %>
+  </div>
+  <br>
+  <div class="col-6">
+    <%= link_to "Mes frais Kilométrique", new_fees_path, class: "btn btn-primary" %>
+    <h4>Mes frais kilométrique</h4>
 
-<%= link_to "Mes frais Kilométrique", new_fees_path, class: "btn btn-primary" %>
-<h4>Mes frais kilométrique</h4>
+    <% @fees.each do |fee| %>
+        <p><%= trajet.date %></p>
+        <p><%= trajet.cost %></p>
+    <% end %>
+  </div>
+</div>
 
-<% @fees.each do |fee| %>
-    <p><%= trajet.date %></p>
-    <p><%= trajet.cost %></p>
-<% end %>

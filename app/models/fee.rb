@@ -5,6 +5,13 @@ class Fee < ApplicationRecord
   belongs_to :user
   belongs_to :car
 
+  validates :date, presence: true
+  validates :departure, presence: true
+  validates :arrival, presence: true
+  validates :type_of_trajet, presence: true
+  validates :kilometer, presence: true
+
+
   private
 
   def cost_calculation
