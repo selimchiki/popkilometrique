@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get "/cars/new", to: "cars#new", as: "new_cars"
   post "/cars/new", to: "cars#create"
   get "fees/new", to: "fees#new", as: "new_fees"
-  post "/trajets/new", to: "trajets#create"
+  post "/fees/new", to: "fees#create"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

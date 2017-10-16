@@ -8,7 +8,7 @@ class Fee < ApplicationRecord
   validates :date, presence: true
   validates :departure, presence: true
   validates :arrival, presence: true
-  validates :type_of_trajet, presence: true
+  validates_inclusion_of :type_of_trajet, in: [true, false]
   validates :kilometer, presence: true
 
 
@@ -16,9 +16,9 @@ class Fee < ApplicationRecord
 
   def cost_calculation
     if self.type_of_trajet == 0
-      self.cout = kilometer * Car.find(car_id).fees.coefficient
+      self.cost = kilometer * Car.find(car_id).scale.coefficient
     else
-      self.cout = (kilometer * Car.find(car_id).fees.coefficient) * 2
+      self.cost = (kilometer * Car.find(car_id).scale.coefficient) * 2
     end
   end
 end
