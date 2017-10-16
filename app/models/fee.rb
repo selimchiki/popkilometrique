@@ -15,10 +15,10 @@ class Fee < ApplicationRecord
   private
 
   def cost_calculation
-    if self.type_of_trajet == 0
-      self.cost = kilometer * Car.find(car_id).scale.coefficient
+    if self.type_of_trajet
+      self.cost = (self.kilometer * Car.find(car_id).scale.coefficient) * 2
     else
-      self.cost = (kilometer * Car.find(car_id).scale.coefficient) * 2
+      self.cost = self.kilometer * Car.find(car_id).scale.coefficient
     end
   end
 end
