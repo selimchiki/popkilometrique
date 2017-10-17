@@ -15,6 +15,6 @@ class FeesController < ApplicationController
   private
 
   def params_fees
-    params.require(:fees).permit(:date, :departure, :arrival, :kilometer, :cost, :car_id, :type_of_trajet)
+    params.require(:fees).permit(:date, :departure, :arrival, :kilometer, :cost, :car_id, :type_of_trajet, :attachment)
   end
 end

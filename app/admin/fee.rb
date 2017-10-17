@@ -12,4 +12,24 @@ ActiveAdmin.register Fee do
 #   permitted
 # end
 
+index do
+  column :date
+  column :departure
+  column :arrival
+  column :user
+  column :cost
+  actions
+end
+
+
+show do
+  attributes_table do
+    row :date
+    row :attachment do
+      fee.attachment? ? link_to(fee.attachment_file_name, fee.attachment.url) : content_tag(:span, "No file downloaded")
+    end
+  end
+end
+
+
 end

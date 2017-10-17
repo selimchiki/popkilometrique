@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171016121927) do
+ActiveRecord::Schema.define(version: 20171017120429) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -65,6 +65,10 @@ ActiveRecord::Schema.define(version: 20171016121927) do
     t.float "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "attachment_file_name"
+    t.string "attachment_content_type"
+    t.integer "attachment_file_size"
+    t.datetime "attachment_updated_at"
     t.index ["car_id"], name: "index_fees_on_car_id"
     t.index ["user_id"], name: "index_fees_on_user_id"
   end

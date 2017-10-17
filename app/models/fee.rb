@@ -11,6 +11,9 @@ class Fee < ApplicationRecord
   validates_inclusion_of :type_of_trajet, in: [true, false]
   validates :kilometer, presence: true
 
+  has_attached_file :attachment
+  validates_attachment :attachment, content_type: { content_type: ["image/jpeg", "image/gif", "image/png", "application/pdf"] }
+  validates_with AttachmentSizeValidator, attributes: :attachment, less_than: 1.megabytes
 
   private
 
