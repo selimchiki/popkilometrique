@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Demande de remboursement de frais kilométrique" do
           table_for Fee.order("id desc") do
             column("Nom") { |fee| link_to(fee.user.email, admin_user_path(fee.user))}
-            column("Frais") { |fee| link_to(fee.cost, admin_fee_path(fee.id)) }
+            column("Frais") { |fee| link_to(fee.cost.round(0), admin_fee_path(fee.id)) }
           end
         end
       end

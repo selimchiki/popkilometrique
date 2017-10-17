@@ -34,7 +34,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title"><%= fee.departure %> <%= fee.arrival %></h4>
-            <p class="card-text"><%= fee.cost %> euros</p>
+            <p class="card-text"><%= fee.cost.round(0) %> euros</p>
             <%= link_to "Voir le frais", fee_path(fee), class: "btn btn-primary" %>
           </div>
         </div>
