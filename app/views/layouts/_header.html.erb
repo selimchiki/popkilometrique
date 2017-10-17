@@ -1,18 +1,19 @@
 <header class="navbar navbar-dark bg-dark navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "PopKilometre", root_path, id: "logo" %>
     <% if logged_in? %>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
-          </div>
+      <%= link_to "PopKilometre", user_path(current_user), id: "logo" %>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Settings", edit_user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
         </div>
+      </div>
     <% else %>
+        <%= link_to "PopKilometre", root_path, id: "logo" %>
         <%= link_to "Log in", login_path %>
       <% end %>
   </div>

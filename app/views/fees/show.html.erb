@@ -1,0 +1,5 @@
+<h1>Frais du <%= @fee.date %></h1>
+
+<p>Vous avez été remboursé à hauteur de <%= @fee.cost %> euros pour votre deplacement entre <%= @fee.departure %> et <%= @fee.arrival %></p>
+
+<%= link_to "PDF", fee_path(@fee, format: :pdf) %>

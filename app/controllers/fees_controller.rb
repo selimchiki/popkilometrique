@@ -12,6 +12,21 @@ class FeesController < ApplicationController
     end
   end
 
+  def show
+    @fee = Fee.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@fee.date.strftime('%d%m%y')}.pdf",
+        template: '/fees/show.pdf.erb',
+        save_to_file: Rails.root.join('fees', "#{@fee.date.strftime('%d%m%y')}.pdf"),
+        layouts: '/layouts/pdf.html.erb',
+        encoding: "utf8",
+        locals:       { fee: @fee }
+      end
+    end
+  end
+
   private
 
   def params_fees

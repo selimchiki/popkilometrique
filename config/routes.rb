@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   put "/cars/:id", to: "cars#desactivation", as: "desactivation_car"
   get "fees/new", to: "fees#new", as: "new_fees"
   post "/fees/new", to: "fees#create"
+  get "/fees/:id", to: "fees#show", as: "fee"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
