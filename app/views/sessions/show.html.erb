@@ -15,9 +15,7 @@
                 </div>
                 <div class="col-6">
                   <%= link_to "Modifier le véhicule", car_path(car), class: "btn btn-secondary" %>
-                  <%= form_tag(desactivation_car_path(car), method: :put) do %>
-                      <%= submit_tag "Supprimer le véhicule", class: "btn btn-danger", data: {confirm: "Etes vous sur de vouloir supprimer le véhicule"} %>
-                  <% end %>
+                  <%= link_to "Supprimer le véhicule", destroy_car_path(car), class: "btn btn-danger", method: :delete, data: {confirm: "Etes vous sur de vouloir supprimer le véhicule"} %>
                 </div>
               </div>
             </div>

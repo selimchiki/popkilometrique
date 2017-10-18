@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20171017120429) do
     t.string "arrival"
     t.boolean "type_of_trajet"
     t.integer "user_id"
-    t.integer "car_id"
+    t.integer "car"
     t.integer "kilometer"
     t.float "cost"
     t.datetime "created_at", null: false
@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20171017120429) do
     t.string "attachment_content_type"
     t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
-    t.index ["car_id"], name: "index_fees_on_car_id"
     t.index ["user_id"], name: "index_fees_on_user_id"
   end
 

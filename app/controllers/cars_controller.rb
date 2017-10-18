@@ -25,9 +25,9 @@ class CarsController < ApplicationController
     end
   end
 
-  def desactivation
+  def destroy
     @car = Car.find(params[:id])
-    @car.update(active: false)
+    @car.destroy
     redirect_to user_path(current_user)
   end
 
