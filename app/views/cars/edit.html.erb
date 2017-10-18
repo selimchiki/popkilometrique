@@ -1,0 +1,13 @@
+<h1>Modifier votre véhicule</h1>
+
+<%= form_for(@car) do |f| %>
+
+    <%= f.label :model %>
+    <br>
+    <%= f.text_field :model, class: "form-control" %>
+    <br>
+    <%= f.label "Modele Fiscal" %>
+    <%= f.collection_select :scale_id, Scale.activated, :id, :model_with_fiscal %>
+    <br>
+    <%= f.submit %>
+<% end %>

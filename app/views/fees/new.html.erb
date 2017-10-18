@@ -1,0 +1,39 @@
+<h1>Créer un nouveau frais kilométrique</h1>
+
+<%= form_for(:fees) do |f|  %>
+
+    <div class="form-group">
+      <%= f.label :date %>
+      <br>
+      <%= f.date_select :date, class: "form-control" %>
+      <br>
+      <%= f.label :departure %>
+      <br>
+      <%= f.text_field :departure, class: "form-control" %>
+      <br>
+      <%= f.label :arrival %>
+      <br>
+      <%= f.text_field :arrival, class: "form-control" %>
+      <br>
+    </div>
+    <div class="form-check">
+      <%= f.radio_button :type_of_trajet, 0 %> Aller ou Retour
+      <br>
+      <%= f.radio_button :type_of_trajet, 1 %> Aller-Retour
+      <br>
+    </div>
+    <div class="form-group"
+      <%= f.label :car_id %>
+      <br>
+      <%= f.select :car_id, current_user.cars.activated.collect {|c| [c.model, c.id] }, class: "form-control" %>
+      <br>
+      <%= f.label :kilometer %>
+      <br>
+      <%= f.text_field :kilometer, class: "form-control" %>
+      <br>
+      <%= f.file_field :attachment %>
+      <br>
+      <%= f.submit %>
+    </div>
+
+<% end %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vehicle_type: MyString
+  coefficient: 1.5
+  fiscal_power: MyString
+  active: false
+
+two:
+  vehicle_type: MyString
+  coefficient: 1.5
+  fiscal_power: MyString
+  active: false
