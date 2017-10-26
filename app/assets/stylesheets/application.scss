@@ -1,5 +1,9 @@
- // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+/*
+ = require bootstrap/dist/css/bootstrap.min
+ = require datedropper/datedropper
+ = require_self
+ */
+
 
  .jumbotron {
    text-align: center;

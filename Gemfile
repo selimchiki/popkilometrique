@@ -37,10 +37,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
 gem 'devise'
 
-# Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-
 # Paperclip
 gem "paperclip", "~> 5.0.0"
 

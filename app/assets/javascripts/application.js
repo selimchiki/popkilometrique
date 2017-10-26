@@ -12,7 +12,13 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require jquery3
-//= require popper
-//= require bootstrap
+//= require jquery/dist/jquery.min
+//= require popper.js/dist/umd/popper.js
+//= require bootstrap/dist/js/bootstrap.min
+//= require datedropper/datedropper
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+    jQuery('.date').dateDropper();
+});
+

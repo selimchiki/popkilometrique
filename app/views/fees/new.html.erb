@@ -5,7 +5,7 @@
     <div class="form-group">
       <%= f.label :date %>
       <br>
-      <%= f.date_select :date, class: "form-control" %>
+      <%= f.text_field :date, class: "form-control date", data: {lang: 'fr', large_mode: true, format: "d-m-Y"} %>
       <br>
       <%= f.label :departure %>
       <br>
@@ -37,3 +37,4 @@
     </div>
 
 <% end %>
+
