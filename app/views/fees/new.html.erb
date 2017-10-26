@@ -25,7 +25,7 @@
     <div class="form-group">
       <%= f.label :car %>
       <br>
-      <%= f.select :car, current_user.cars.activated.collect {|c| [c.model, c.id] }, class: "form-control" %>
+      <%= f.select :car, current_user.cars.activated.collect {|c| [c.model, c.id] }, {prompt: "Please select a car"}, {class: "form-control"} %>
       <br>
       <%= f.label :kilometer %>
       <br>
@@ -33,7 +33,7 @@
       <br>
       <%= f.file_field :attachment %>
       <br>
-      <%= f.submit %>
+      <%= f.submit "Create a new fee", class: "btn btn-primary" %>
     </div>
 
 <% end %>

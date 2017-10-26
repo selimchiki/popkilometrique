@@ -1,3 +1,43 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+ .jumbotron {
+   text-align: center;
+   margin-top: 15px;
+   .btn {
+     margin-top: 15px;
+   }
+ }
+
+ h1 {
+   text-align: center;
+ }
+
+.form-group {
+  margin-top: 40px;
+
+}
+
+#index_cars {
+  h2 {
+    margin: 7px;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .card {
+    .btn {
+      margin: 8px;
+    }
+  }
+}
+
+#index_fees {
+  h2 {
+    margin: 7px;
+    text-align: center;
+  }
+}
