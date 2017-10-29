@@ -19,7 +19,6 @@
 
 .form-group {
   margin-top: 40px;
-
 }
 
 #index_cars {
@@ -33,6 +32,9 @@
   }
 
   .card {
+
+    box-shadow: 10px -10px teal;
+    margin: 14px;
     .btn {
       margin: 8px;
     }
@@ -44,4 +46,10 @@
     margin: 7px;
     text-align: center;
   }
+
+  .card {
+    box-shadow: 10px -10px teal;
+    margin: 14px;
+  }
 }
+
