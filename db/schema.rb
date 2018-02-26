@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017120429) do
+ActiveRecord::Schema.define(version: 20180222093409) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20171017120429) do
     t.string "departure"
     t.string "arrival"
     t.boolean "type_of_trajet"
-    t.integer "user_id"
     t.integer "car"
     t.integer "kilometer"
     t.float "cost"
@@ -69,11 +68,12 @@ ActiveRecord::Schema.define(version: 20171017120429) do
     t.string "attachment_content_type"
     t.integer "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_fees_on_user_id"
   end
 
   create_table "scales", force: :cascade do |t|
-    t.string "vehicle_type"
+    t.integer "vehicle_type"
     t.float "coefficient"
     t.string "fiscal_power"
     t.boolean "active", default: true
