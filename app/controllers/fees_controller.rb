@@ -1,4 +1,7 @@
 class FeesController < ApplicationController
+
+  before_action :authenticate_user!
+
   def new
     @fee = current_user.fees.new
   end

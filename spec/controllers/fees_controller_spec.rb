@@ -60,10 +60,9 @@ RSpec.describe FeesController, type: :controller do
     log_in_user
 
     before(:each) do
-      @user = session[:user_id]
       scale = create(:scale)
       car = create(:car, scale_id: scale.id)
-      @fee = create(:fee, user_id: @user, car: car.id)
+      @fee = create(:fee, user_id: @user.id, car: car.id)
     end
 
     it "assigns the requested contact to @contact" do
@@ -83,10 +82,9 @@ RSpec.describe FeesController, type: :controller do
     log_in_user
 
     before(:each) do
-      @user = session[:user_id]
       scale = create(:scale)
       car = create(:car, scale_id: scale.id)
-      @fee = create(:fee, user_id: @user, car: car.id)
+      @fee = create(:fee, user_id: @user.id, car: car.id)
     end
 
     it "responds to html by default in show" do
@@ -98,5 +96,6 @@ RSpec.describe FeesController, type: :controller do
       get :show, params: { id: @fee.id }, format: :pdf
       expect(response.content_type).to eq "application/pdf"
     end
+
   end
 end

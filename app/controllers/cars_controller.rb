@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :car_id, only: [:edit, :update, :destroy]
 
   def new
