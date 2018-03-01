@@ -14,7 +14,7 @@ RSpec.describe SessionsController, type: :controller do
     context "user not signed" do
       it "redirect_to root_path" do
         get :home
-        expect(response.status).to eq(200)
+        expect(response.status).to render_template :home
       end
     end
   end
