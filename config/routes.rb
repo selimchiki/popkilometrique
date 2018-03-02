@@ -10,15 +10,10 @@ Rails.application.routes.draw do
   patch '/users/:id', to: "sessions#update"
   delete 'sessions/destroy', to: "sessions#destroy", as: "logout"
 
-  get "/cars/new", to: "cars#new", as: "new_cars"
-  post "/cars/new", to: "cars#create"
-  get "/cars/:id/edit", to:"cars#edit", as: "car"
-  patch "/cars/:id/edit", to: "cars#update"
-  delete "/cars/:id", to: "cars#destroy", as: "destroy_car"
 
-  get "fees/new", to: "fees#new", as: "new_fees"
-  post "/fees/new", to: "fees#create"
-  get "/fees/:id", to: "fees#show", as: "fee"
+  resources :cars
+
+  resources :fees, only: [:new, :create, :show]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

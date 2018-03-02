@@ -2,15 +2,4 @@
 
 <%= render "cars/error" %>
 
-<%= form_for(:cars) do |f| %>
-
-    <%= f.label :model %>
-    <br>
-    <%= f.text_field :model, class: "form-control" %>
-    <br>
-    <%= f.label "Modele Fiscal" %>
-    <br>
-    <%= f.collection_select :scale_id, Scale.activated, :id, :model_with_fiscal, {prompt: "Please select a fiscal power"}, {class: "form-control"} %>
-    <br>
-    <%= f.submit "Create a new car", class: "btn btn-primary" %>
-<% end %>
+<%= render "form" %>
