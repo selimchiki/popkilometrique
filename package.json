@@ -1,5 +1,16 @@
 {
   "name": "PopKilometrique",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "4.0.0-beta.2",
+    "datedropper3": "^3.0.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.6",
+    "select2": "^4.0.6-rc.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "selimchiki@bitbucket.org:selimchiki/popkilometrique.git",
+  "author": "Selim Chiki <selimchiki@yahoo.fr>",
+  "license": "MIT"
 }

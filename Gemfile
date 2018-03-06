@@ -37,10 +37,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
 gem 'devise'
 
-# Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-
 # Paperclip
 gem "paperclip", "~> 5.0.0"
 
@@ -48,12 +44,20 @@ gem "paperclip", "~> 5.0.0"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary' # if Wkhtmltopdf is not installed
 
+# Simple Form
+gem 'simple_form'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
+  gem "factory_bot_rails", "~> 4.0"
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :development do

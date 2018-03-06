@@ -1,4 +1,8 @@
 class CarsController < ApplicationController
+
+  before_action :authenticate_user!
+  before_action :car_id, only: [:edit, :update, :destroy]
+
   def new
     @car = current_user.cars.new
   end
@@ -13,27 +17,28 @@ class CarsController < ApplicationController
   end
 
   def edit
-    @car = Car.find(params[:id])
   end
 
   def update
-    @car = Car.find(params[:id])
-    if @car.update(params.require(:car).permit(:model, :scale_id, :user_id))
+    if @car.update(car_params)
       redirect_to user_path(current_user)
     else
       render "edit"
     end
   end
 
-  def desactivation
-    @car = Car.find(params[:id])
-    @car.update(active: false)
+  def destroy
+    @car.destroy
     redirect_to user_path(current_user)
   end
 
   private
 
+  def car_id
+    @car = Car.find(params[:id])
+  end
+
   def car_params
-    params.require(:cars).permit(:model, :scale_id, :user_id)
+    params.require(:car).permit(:model, :scale_id, :user_id)
   end
 end

@@ -5,8 +5,7 @@ class CreateFees < ActiveRecord::Migration[5.1]
       t.string :departure
       t.string :arrival
       t.boolean :type_of_trajet
-      t.references :user, foreign_key: true
-      t.references :car, foreign_key: true
+      t.integer :car
       t.integer :kilometer
       t.float :cost
 

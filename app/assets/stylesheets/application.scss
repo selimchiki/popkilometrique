@@ -1,3 +1,55 @@
- // Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+/*
+ = require bootstrap/dist/css/bootstrap.min
+ = require datedropper3/datedropper
+ = require_self
+ */
+
+
+ .jumbotron {
+   text-align: center;
+   margin-top: 15px;
+   .btn {
+     margin-top: 15px;
+   }
+ }
+
+ h1 {
+   text-align: center;
+ }
+
+.form-group {
+  margin-top: 40px;
+}
+
+#index_cars {
+  h2 {
+    margin: 7px;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  .card {
+
+    box-shadow: 10px -10px teal;
+    margin: 14px;
+    .btn {
+      margin: 8px;
+    }
+  }
+}
+
+#index_fees {
+  h2 {
+    margin: 7px;
+    text-align: center;
+  }
+
+  .card {
+    box-shadow: 10px -10px teal;
+    margin: 14px;
+  }
+}
 

@@ -1,0 +1,7 @@
+<%= simple_form_for @car do |f| %>
+
+  <%= f.input :model, label: "model" %>
+  <%= f.input :scale_id, as: :select, collection: Scale.activated, label_method: :model_with_fiscal %>
+  <%= f.button :submit, @car.new_record? ? "Créer" : "Modifier", class: "btn btn-primary" %>
+
+<% end %>
