@@ -1,4 +1,5 @@
 class Scale < ApplicationRecord
+  include TranslateEnum
 
   has_many :cars
 
@@ -8,11 +9,12 @@ class Scale < ApplicationRecord
   validates :active, inclusion: { in: [true, false] }
 
   enum vehicle_type: [:light_vehicle, :two_weels, :less_than_50_cm3]
+  translate_enum :vehicle_type
 
   scope :activated, -> {where(active: true)}
 
   def model_with_fiscal
-    "#{vehicle_type}, #{fiscal_power}"
+    "#{translated_vehicle_type}, #{fiscal_power}"
   end
 
 

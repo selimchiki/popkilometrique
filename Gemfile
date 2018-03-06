@@ -40,6 +40,9 @@ gem 'devise'
 # Paperclip
 gem "paperclip", "~> 5.2.0"
 
+# Translate enum
+gem 'translate_enum', '~> 0.1.2'
+
 # Gem for PDF
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary' # if Wkhtmltopdf is not installed
