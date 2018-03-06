@@ -15,7 +15,7 @@
 //= require jquery/dist/jquery.min
 //= require popper.js/dist/umd/popper.js
 //= require bootstrap/dist/js/bootstrap.min
-//= require datedropper/datedropper
+//= require datedropper3/datedropper
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

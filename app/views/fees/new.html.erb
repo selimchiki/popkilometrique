@@ -1,43 +1,22 @@
 <h1>Créer un nouveau frais kilométrique</h1>
 
-<%= form_for(:fees) do |f|  %>
+<%= simple_form_for @fee do |f| %>
 
-    <%= render 'shared/error_fees' %>
+  <%= f.input :date, as: :string , label: "Date du frais" ,input_html: { class: "form-control date", data: { lang: 'fr', large_mode: true, format: "d-m-Y"}} %>
+  <%= f.input :departure, label: "Lieu de départ", input_html: { class: "form-control", id: 'departure'} %>
+  <%= f.input :arrival, label: "Lieu d'arrivée", input_html: { class: "form-control", id: 'arrival'} %>
 
-    <div class="form-group">
-      <%= f.label :date %>
-      <br>
-      <%= f.text_field :date, class: "form-control date", data: {lang: 'fr', large_mode: true, format: "d-m-Y"} %>
-      <br>
-      <%= f.label :departure %>
-      <br>
-      <%= f.text_field :departure, class: "form-control", id: 'departure'%>
-      <br>
-      <%= f.label :arrival %>
-      <br>
-      <%= f.text_field :arrival, class: "form-control", id: 'arrival' %>
-      <br>
-      <input type="button" onclick="distance()" value="calculer la distance" class="btn btn-info"/>
-      <div>
-        La distance est de : <div id="output"></div>
-        <br>
-      </div>
-      <%= f.text_field :kilometer, hidden: true, class: "form-control", id: "outputInput" %>
-    <div class="form-check">
-      <%= f.radio_button :type_of_trajet, 0 %> Aller ou Retour
-      <br>
-      <%= f.radio_button :type_of_trajet, 1 %> Aller-Retour
-      <br>
-    </div>
-    <div class="form-group">
-      <%= f.label :car %>
-      <br>
-      <%= f.select :car, current_user.cars.activated.collect {|c| [c.model, c.id] }, {prompt: "Please select a car"}, {class: "form-control"} %>
-      <br>
-      <%= f.file_field :attachment %>
-      <br>
-      <%= f.submit "Create a new fee", class: "btn btn-primary" %>
-    </div>
+  <input type="button" onclick="distance()" value="Calculer la distance" class="btn btn-info" />
+
+  <div>
+    La distance est de : <div id="output"></div>
+  </div>
+
+  <%= f.input :kilometer, as: :integer, input_html: { class: 'form-control', id: 'outputInput', hidden: true } %>
+  <%= f.collection_radio_buttons :type_of_trajet, [[true, 'Allez ou retour'], [false, 'Allez Retour']], :first, :last %>
+  <%= f.input :car, as: :select, collection: current_user.cars.activated, label_method: :model %>
+  <%= f.input :attachment, as: :file %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 
 <% end %>
 
@@ -66,16 +45,18 @@
             if (status == 'OK') {
                 var origins = response.originAddresses;
                 var outputDiv = document.getElementById('output');
-                var outputInput = document.getElementById(('outputInput'))
+                var outputInput = document.getElementById('outputInput');
                 var destinations = response.destinationAddresses;
 
                 for (var i = 0; i < origins.length; i++) {
                     var results = response.rows[i].elements;
                     for (var j = 0; j < results.length; j++) {
                         var element = results[j];
-                        var distance = element.distance.text;
-                        outputDiv.innerHTML = distance
-                        outputInput.value = distance
+                        var distanceKm = element.distance.text;
+                        outputDiv.innerHTML = distanceKm;
+                        distanceKm = distanceKm.substr(0, distanceKm.length - 3);
+                        distanceKm = distanceKm.replace(",", ".");
+                        outputInput.value = Number(distanceKm);
                     }
                 }
             }

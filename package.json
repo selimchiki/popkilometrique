@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "4.0.0-beta.2",
-    "datedropper": "^2.0.0",
+    "datedropper3": "^3.0.0",
     "jquery": "^3.2.1",
     "popper.js": "^1.12.6",
     "select2": "^4.0.6-rc.1"

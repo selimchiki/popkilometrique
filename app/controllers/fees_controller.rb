@@ -7,11 +7,11 @@ class FeesController < ApplicationController
   end
 
   def create
-    @fee = current_user.fees.new(params_fees)
+    @fee = current_user.fees.new(fee_params)
     if @fee.save
       redirect_to user_path(current_user)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class FeesController < ApplicationController
 
   private
 
-  def params_fees
-    params.require(:fees).permit(:date, :departure, :arrival, :kilometer, :cost, :car, :type_of_trajet, :attachment)
+  def fee_params
+    params.require(:fee).permit(:date, :departure, :arrival, :kilometer, :cost, :car, :type_of_trajet, :attachment)
   end
 end

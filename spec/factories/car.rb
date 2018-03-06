@@ -16,4 +16,5 @@ FactoryBot.define do
     model "C4"
     user_id 1
   end
+
 end
