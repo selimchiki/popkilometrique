@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application for kilometrique fees
 
-Things you may want to cover:
+To install the Rails Application
 
-* Ruby version
 
-* System dependencies
+```
+git clone git@github.com:selimchiki/popkilometrique.git
+```
+or
+```
+git clone https://github.com/selimchiki/popkilometrique.git
+```
 
-* Configuration
+```
+cd popkilometrique
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
+```
 
-* Database creation
+compte admin : admin@example.com
+password: password
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+compte utilisateur: selimchiki@yahoo.fr
+password: azerty
