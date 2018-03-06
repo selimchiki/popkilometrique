@@ -38,7 +38,7 @@ gem 'activeadmin'
 gem 'devise'
 
 # Paperclip
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 
 # Gem for PDF
 gem 'wicked_pdf'
