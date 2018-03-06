@@ -32,24 +32,24 @@ RSpec.describe FeesController, type: :controller do
 
     context "with valid attributes" do
       it "saves the new fee in the database" do
-        post :create, params: { fees: attributes_for(:fee, car: @car )}
+        post :create, params: { fee: attributes_for(:fee, car: @car )}
         expect(Fee.count).to eq(1)
       end
 
       it "redirects to the user page " do
-        post :create, params: { fees: attributes_for(:fee, car: @car )}
+        post :create, params: { fee: attributes_for(:fee, car: @car )}
         expect(response).to redirect_to @user
       end
     end
 
     context "with invalid attributes" do
       it "dont save the new fee in the database" do
-        post :create, params: { fees: attributes_for(:fee, departure: nil, car: @car )}
+        post :create, params: { fee: attributes_for(:fee, departure: nil, car: @car )}
         expect(Fee.count).to eq(0)
       end
 
       it "render the :new template" do
-        post :create, params: { fees: attributes_for(:fee, departure: nil, car: @car )}
+        post :create, params: { fee: attributes_for(:fee, departure: nil, car: @car )}
         expect(response).to render_template :new
       end
     end
